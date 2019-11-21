@@ -34,12 +34,14 @@ class App extends React.Component {
     <Router>
       <div className="App">
       <Header currentAdopted={this.state.wantToAdopt.length}/>
-      <Redirect from='/' to='/dogs'/>
+      <main>
+        <Redirect from='/' to='/dogs'/>
       <Switch>
         <Route exact path='/dogs' render={(routeProps)=> (<Dogs {...routeProps} currentAdopted={this.handleAdoptionCount}/>)}/>
         <Route exact path='/adoptions' component={Adoptions}/>
         <Route exact path='/checkout/' render={(routeProps)=> (<Checkout {...routeProps} currentAdopted={this.state.wantToAdopt}/>)}/>
       </Switch>
+      </main>
     </div>
     </Router>
   );

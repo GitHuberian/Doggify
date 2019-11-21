@@ -37,13 +37,13 @@ class Dogs extends React.Component {
                 });
         }
 
-componentWillUnmount() {
-    this._isMounted = false;
-  }
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
 
-  handleCurrentAdopted(dog) {
-      this.props.currentAdopted(dog);
-  }
+    handleCurrentAdopted(dog) {
+        this.props.currentAdopted(dog);
+    }
 
     render(){ 
         return(

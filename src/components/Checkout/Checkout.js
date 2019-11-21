@@ -12,31 +12,22 @@ class Checkout extends React.Component {
     }
 
     eventCheckout(jsonDogs){
-        let obj = '{"dogs":' + jsonDogs + '}';
-        console.log("DOGS adoptions json " + JSON.stringify(obj));
-        obj = JSON.stringify(obj);
-        obj = JSON.parse(obj);
-        
-        console.log("elobjeto "+obj);
-        axios({
-                method: 'post',
-                url: '/adopt',
-                baseURL: 'http://localhost:3333/api/dogs/',
-                headers: {
-                    'API_KEY': 'v1Vld/Dr34m5',
-                    'Content-Type': 'application/json'
-                },
-                data:{
-                    obj
-                }
+
+        const objDogs = JSON.parse(jsonDogs);
+        let obj = {"dogs": objDogs};
+        var headers =  {
+            'API_KEY': 'v1Vld/Dr34m5',
+            'Content-Type': 'application/json',
+        }
+        axios.post('http://localhost:3333/api/dogs/adopt', obj, {"headers" : headers})
+
+            .then((response) => {
+                console.log(response);
             })
-            .then(result => {
-                console.log(result);
-            }).catch(error => {
-                alert('ERROR' + error);
-                console.log(error);
-            });
-    }
+            .catch((error) => {
+            console.log(error);
+            })
+        }
 
     eventRemove(dog){
         console.log('Remove' + dog);
@@ -44,9 +35,13 @@ class Checkout extends React.Component {
 
     render() {
         const currentAdopted = this.props.currentAdopted;
-        
+        let button;
+        if (currentAdopted.length>0) {
+        button = <ButtonSubmitAdoption eventCheckout={this.eventCheckout} jsonDog={JSON.stringify(currentAdopted)} />;
+        } 
         return ( 
         <div className="CheckoutMain">
+            <h1>Your new friends</h1>
             <div className = "CheckoutList" > 
             {currentAdopted.map((dog) =>
                 <div className="DogCheckoutCard text-left" key={dog.id}>
@@ -58,7 +53,7 @@ class Checkout extends React.Component {
                 <ButtonRemove eventRemove={this.eventRemove} removeDog={JSON.stringify(currentAdopted)}/>
             </div>
             )}
-        <ButtonSubmitAdoption eventCheckout={this.eventCheckout} jsonDog={JSON.stringify(currentAdopted)} />
+        {button}
         </div>        
         </div>
         );

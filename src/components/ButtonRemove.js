@@ -13,7 +13,7 @@ class ButtonRemove extends React.Component{
  
     render(){
         return(
-            <button className="pinkBtn" id="remove" onClick={() => this.onClick()}> REMOVE FROM BASKET</button>
+            <button className="PinkBtn" id="remove" onClick={() => this.onClick()}> REMOVE FROM BASKET</button>
         );
     }
 }

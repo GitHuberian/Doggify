@@ -21,32 +21,36 @@ class Adoptions extends React.Component{
             })
             .then(result => {
                 if(this._isMounted){
-                    const dogs = result.data.adoptions;
+                    const adoptionsDogs = result.data.adoptions;
                     this.setState({
-                        dogs
+                        adoptionsDogs
                     });
-                    console.log("DOGS adoptions"+JSON.stringify(dogs));
+                    console.log("DOGS adoptions"+this.state.adoptionsDogs);
                 }
             }).catch(error => {
                 console.log(error);
             });
     }
-componentWillUnmount() {
-    this._isMounted = false;
-}
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
      render(){
         return(
+        <div>
+        <h1> Your Companions </h1>
         <div className="List">
-        {this.state.adoptionsDogs.map((dog) =>
-                <div className="dogCard text-left" key={dog.id}>
-                <img src={dog.imgUrl} alt="" />
+        {this.state.adoptionsDogs.map((adopt) =>
+                <div className="dogCard text-left" key={adopt.id}>
+                <img src={adopt.imgUrl} alt="" />
                 <div className="footerCard">
-                    <h3>{dog.breed}</h3>
-                    <p>{dog.age}</p><span></span><p>{dog.size}</p>
+                    <h3>{adopt.breed}</h3>
+                    <p>{adopt.age}</p><span></span><p>{adopt.size}</p>
                 </div>
             </div>
             )}
         </div>
+        </div>
+        
         );
      }
 };
