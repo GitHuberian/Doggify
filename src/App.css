@@ -1,0 +1,160 @@
+.App {
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+  box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+  height: 45px;
+  position: relative;
+  padding-top: 18px;
+}
+
+nav ul {
+  display: flex;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li {
+  padding: 0 10px;
+}
+
+nav ul li a span{
+  color: white;
+  background-color: pink;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+
+nav ul li:last-child {}
+
+.DogCheckoutCard {
+  display: grid;
+  grid-template-columns: auto 40vw auto;
+  grid-gap: 20px;
+
+}
+
+.DogCheckoutCard img{
+  width: 200px;
+  height: 145px;
+  object-fit: cover;
+}
+
+.CheckoutMain{
+  padding: 20px 50px;
+}
+
+.CheckoutList {
+  display: grid;
+  grid-template-columns:1fr;
+  justify-items: inherit;
+  grid-gap: 30px;
+  padding: 0 200px;
+}
+
+.CheckoutList button.BlueBtn{
+  width: 20%;
+}
+
+.CheckoutList #remove {
+  margin: auto 0;
+  height: 50px;
+}
+
+.List {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 20px 50px;
+  grid-gap: 30px;
+}
+
+.dogCard{
+  width: 350px;
+  height: auto;
+  border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+    box-shadow: 0px 0px 5px 0px rgba(168, 168, 168, 1);
+    overflow: hidden;
+}
+
+.dogCard img{
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+button{
+  padding: 10px 25px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+button:hover{
+  opacity: 0.8;
+}
+
+button:disabled {
+  background-color: gainsboro;
+}
+
+.left{
+  float: left;
+}
+
+.text-left{
+  text-align: left;
+}
+
+button.BlueBtn{
+  background-color: #8e8ebd;
+}
+
+button.PinkBtn {
+  background-color: #d581c4;
+}
+
+.footerCard{
+  padding: 15px;
+}
+
+.footerCard span{
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  background-color: black;
+  border-radius: 50px;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.footerCard p{
+  display: inline;
+}
+
+hr{
+  margin: 9px 0 0 0;
+}
+
+a{
+  font-weight: bold;
+  color: gray;
+  text-decoration: none;
+}
